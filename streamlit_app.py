@@ -6,10 +6,10 @@ st.write(
     "Тестирование"
 )
 import pandas as pd
-file_1 = st.file_uploader("Drop your main1 csv data here", type={"csv"})
-file_2 = st.file_uploader("Drop your main2 csv data here", type={"csv"})
-file_3 = st.file_uploader("Drop your main3 csv data here", type={"csv"})
-art_spis = st.file_uploader("Drop your art spisok in excel here", type={"xlsx"})
+file_1 = st.file_uploader("Drop your main1 csv data here", type={"csv"},key='1')
+file_2 = st.file_uploader("Drop your main2 csv data here", type={"csv"},key='2')
+file_3 = st.file_uploader("Drop your main3 csv data here", type={"csv"},key='3')
+art_spis = st.file_uploader("Drop your art spisok in excel here", type={"xlsx"},key='4')
 import plotly.express as px
 from streamlit_extras.dataframe_explorer import dataframe_explorer
 from streamlit_extras.mandatory_date_range import date_range_picker
