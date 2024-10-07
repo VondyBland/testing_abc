@@ -6,15 +6,19 @@ st.write(
     "Тестирование"
 )
 import pandas as pd
-file = st.file_uploader("Drop your main csv data here", type={"csv"})
+file_1 = st.file_uploader("Drop your main1 csv data here", type={"csv"})
+file_2 = st.file_uploader("Drop your main2 csv data here", type={"csv"})
+file_3 = st.file_uploader("Drop your main3 csv data here", type={"csv"})
 art_spis = st.file_uploader("Drop your art spisok in excel here", type={"xlsx"})
 import plotly.express as px
 from streamlit_extras.dataframe_explorer import dataframe_explorer
 from streamlit_extras.mandatory_date_range import date_range_picker
+from streamlit_extras.stateful_button import button
 from datetime import timedelta, datetime 
 import pandas as pd 
 from datetime import timedelta, datetime
- 
+
+
 def abc_xyz_analysis(): 
     global final_df
     global xyz_df
@@ -135,7 +139,9 @@ def example_one():
     st.dataframe(filtered_df, use_container_width=True)
 
 result = date_range_picker("Select a date range")
-
-if (file != None) & (art_spis!=None) &(result!=None): 
-        abc_xyz_analysis()
+if button("Button 1", key="button1"):
+    st.write("Начинаем расчеты")
+    file = pd.concat([file_1,file_2,file_3], ignore_index=True, sort=False)
+    if (file != None) & (art_spis!=None) &(result!=None): 
+            abc_xyz_analysis()
 
